@@ -1,0 +1,10 @@
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: /META-INF/public-key.pem
+      issuer: srnjak
+  openapi:
+    filter: ${package}.tools.openApi.OASFilterImpl
+    servers:
+      - /${artifactId}

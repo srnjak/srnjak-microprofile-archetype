@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: sample.1
+      author: Grega Krajnc
+      changes:
+        - createTable:
+            tableName: sample
+            columns:
+              - column:
+                  name: id
+                  type: char(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: char(36)
+                  constraints:
+                    nullable: false

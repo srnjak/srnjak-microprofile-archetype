@@ -1,0 +1,39 @@
+<server>
+    <featureManager>
+        <feature>javaee-8.0</feature>
+        <feature>microProfile-3.3</feature>
+    </featureManager>
+
+    <httpEndpoint
+            httpPort="${default.http.port}"
+            id="defaultHttpEndpoint"
+            host="*" />
+
+    <library id="mariadb-library">
+        <file name="${mariadb.driver.path}"/>
+    </library>
+
+    <jdbcDriver id="mariadb-driver"
+                javax.sql.XADataSource="org.mariadb.jdbc.Driver"
+                javax.sql.ConnectionPoolDataSource="org.mariadb.jdbc.MariaDbDataSource"
+                libraryRef="mariadb-library"/>
+
+    <webApplication
+            location="${artifactId}.war"
+            contextRoot="${app.context.root}"/>
+
+    <dataSource id="DefaultDataSource"
+                jndiName="jdbc/service-ds"
+                jdbcDriverRef="mariadb-driver"
+                type="javax.sql.ConnectionPoolDataSource"
+                transactional="true">
+
+        <properties serverName="${${artifactId}.db.hostname}"
+                    portNumber="${${artifactId}.db.port}"
+                    databaseName="${${artifactId}.db.dbname}"
+                    user="${${artifactId}.db.username}"
+                    password="${${artifactId}.db.password}"/>
+    </dataSource>
+
+    <mpJwt id="defaultMpJwt" audiences="${artifactId}"/>
+</server>

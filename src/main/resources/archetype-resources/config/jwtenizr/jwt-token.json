@@ -1,0 +1,14 @@
+{
+  "iss": "srnjak",
+  "exp": 1609459200,
+  "jti": "42",
+  "sub": "3f2d1b4b-4d8b-4694-9365-fcc944f7aa98",
+  "upn": "test1",
+  "aud": [
+    "${artifactId}"
+  ],
+  "groups": [
+    "myrole",
+    "another"
+  ]
+}

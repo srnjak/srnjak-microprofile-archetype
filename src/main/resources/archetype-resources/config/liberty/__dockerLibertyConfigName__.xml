@@ -1,0 +1,26 @@
+<server>
+
+    <dataSource id="DefaultDataSource"
+                jndiName="jdbc/service-ds"
+                jdbcDriverRef="mariadb-driver"
+                type="javax.sql.ConnectionPoolDataSource"
+                transactional="true">
+
+        <properties serverName="${${artifactId}.db.hostname}"
+                    portNumber="${${artifactId}.db.port}"
+                    databaseName="${${artifactId}.db.dbname}"
+                    user="${${artifactId}.db.username}"
+                    password="${${artifactId}.db.password}"/>
+    </dataSource>
+
+    <mpJwt id="defaultMpJwt" audiences="${artifactId}"/>
+
+    <!-- Print sql statements to stdout -->
+    <!--
+    <logging
+            traceSpecification="*=info:eclipselink.sql=all"
+            traceFileName="stdout"
+            traceFormat="BASIC"/>
+    -->
+
+</server>

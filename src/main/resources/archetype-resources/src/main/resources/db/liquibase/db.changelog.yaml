@@ -1,0 +1,6 @@
+databaseChangeLog:
+    - include:
+        file: changelogs/common/initialTableCreation.changelog.yaml
+        relativeToChangelogFile: true
+
+                  
